@@ -10,7 +10,7 @@ _head.part, _foot.part   shared page chrome
 _body/*.html             the content of each page — edit these
 build.py                 regenerates the four pages from the parts above
 index.html               generated — do not edit directly
-research/, teaching/, writing/, 404.html
+research/, teaching/, other/, 404.html
 favicon.svg, robots.txt, sitemap.xml
 assets/css/style.css     the whole stylesheet
 assets/img/              portrait

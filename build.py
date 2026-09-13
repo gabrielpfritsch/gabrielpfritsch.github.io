@@ -10,12 +10,12 @@ PAGES = [
      "Working papers and work in progress on fiscal policy, sovereign default, sudden stops, and geopolitical fragmentation."),
     ("teaching", "teaching/index.html", "/teaching/", "Teaching &middot; Gabriel Fritsch", "Teaching",
      "Courses taught at the University of Oxford and the Oxford University Economics Summer School."),
-    ("writing", "writing/index.html", "/writing/", "Writing &middot; Gabriel Fritsch", "Writing",
+    ("other", "other/index.html", "/other/", "Other &middot; Gabriel Fritsch", "Other",
      "Selected research reports from the Goldman Sachs LatAm Economics team."),
     ("404", "404.html", "/404.html", "Not found &middot; Gabriel Fritsch", "Not found",
      "That page does not exist."),
 ]
-SLOTS = {"home": "__H__", "research": "__R__", "teaching": "__T__", "writing": "__W__"}
+SLOTS = {"home": "__H__", "research": "__R__", "teaching": "__T__", "other": "__O__"}
 
 root = pathlib.Path(__file__).parent
 head = (root / "_head.part").read_text()
