@@ -1,24 +1,36 @@
-/* ---- Palette -------------------------------------------------------- */
 :root {
+  color-scheme: light dark;
   --bg:        #FBFAF5;
   --surface:   #F4F1E8;
   --text:      #1B1A17;
   --muted:     #6E6A60;
   --rule:      #DFDACB;
-  --accent:    #7A2E2A;   /* oxblood */
+  --accent:    #7A2E2A;
   --accent-soft: #A85B50;
 }
 
+/* Dark: applied when the reader's system asks for it, unless they chose light here. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg:      #14130F;
-    --surface: #1D1C17;
-    --text:    #E8E3D6;
-    --muted:   #9A9485;
-    --rule:    #33312A;
-    --accent:  #D08A7C;
-    --accent-soft: #B36F61;
+  :root:not([data-theme="light"]) {
+  --bg:      #121212;
+  --surface: #1A1A1A;
+  --text:    #E7E5E1;
+  --muted:   #A3A09B;
+  --rule:    #2B2B2B;
+  --accent:  #E09B8E;
+  --accent-soft: #C08376;
   }
+}
+
+/* Dark: applied when the reader chose it here, whatever the system says. */
+:root[data-theme="dark"] {
+  --bg:      #121212;
+  --surface: #1A1A1A;
+  --text:    #E7E5E1;
+  --muted:   #A3A09B;
+  --rule:    #2B2B2B;
+  --accent:  #E09B8E;
+  --accent-soft: #C08376;
 }
 
 /* ---- Base ----------------------------------------------------------- */
@@ -119,8 +131,7 @@ details.abstract > summary:hover { color: var(--accent); }
 details.abstract > p {
   margin: 0.7rem 0 0; padding: 0.9rem 1.1rem;
   background: var(--surface); border-left: 2px solid var(--accent-soft);
-  font-size: 0.95rem; line-height: 1.6; color: var(--text); text-align: justify;
-  hyphens: auto;
+  font-size: 0.95rem; line-height: 1.6; color: var(--text);
 }
 
 .entry { margin-bottom: 1.3rem; }
@@ -142,3 +153,21 @@ details.abstract > p {
   .report { flex-direction: column; gap: 0.1rem; }
 }
 
+
+/* ---- Theme toggle ---------------------------------------------------- */
+.theme-toggle {
+  background: none; border: 0; padding: 0; margin: 0;
+  color: var(--muted); cursor: pointer; line-height: 0;
+  display: inline-flex; align-items: center;
+}
+.theme-toggle:hover { color: var(--accent); }
+.theme-toggle svg { width: 15px; height: 15px; fill: currentColor; }
+.theme-toggle .moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .sun  { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
+}
+:root[data-theme="dark"] .theme-toggle .sun  { display: none; }
+:root[data-theme="dark"] .theme-toggle .moon { display: block; }
+:root[data-theme="light"] .theme-toggle .sun  { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
