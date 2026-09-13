@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="10" fill="#7A2E2A"/>
+  <rect width="64" height="64" rx="10" fill="#FBFAF5"/>
   <text x="32" y="45" font-family="EB Garamond, Garamond, Georgia, serif" font-size="38"
-        fill="#FBFAF5" text-anchor="middle">GF</text>
+        fill="#1B1A17" text-anchor="middle">GF</text>
 </svg>

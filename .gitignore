@@ -11,3 +11,4 @@ cv/*.log
 cv/*.out
 cv/*.synctex.gz
 cv/cv.pdf
+demo-toggles.html

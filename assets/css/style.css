@@ -7,6 +7,7 @@
   --rule:      #DFDACB;
   --accent:    #7A2E2A;
   --accent-soft: #A85B50;
+  --underline: #BDBDBD;
 }
 
 /* Dark: applied when the reader's system asks for it, unless they chose light here. */
@@ -19,6 +20,7 @@
   --rule:    #2B2B2B;
   --accent:  #E09B8E;
   --accent-soft: #C08376;
+  --underline: #5C5C5C;
   }
 }
 
@@ -31,6 +33,7 @@
   --rule:    #2B2B2B;
   --accent:  #E09B8E;
   --accent-soft: #C08376;
+  --underline: #5C5C5C;
 }
 
 /* ---- Base ----------------------------------------------------------- */
@@ -46,12 +49,18 @@ body {
   font-feature-settings: "onum" 1, "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 41rem; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
+.wrap { max-width: 47rem; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
 
-a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
-a:hover { border-bottom-color: var(--accent); }
-a.plain, .plain a { border-bottom: none; }
-.plain a:hover { border-bottom: 1px solid var(--accent); }
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--underline);
+}
+a:hover { text-decoration-color: var(--text); }
+a.plain, .plain a { text-decoration: none; }
+.plain a:hover { text-decoration: underline; text-decoration-color: var(--text); }
 
 p { margin: 0 0 1.05em; }
 em { font-style: italic; }
@@ -73,8 +82,8 @@ em { font-style: italic; }
   font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--muted);
 }
-.masthead nav a:hover { color: var(--accent); }
-.masthead nav a[aria-current="page"] { color: var(--text); border-bottom: 1px solid var(--accent); }
+.masthead nav a:hover { color: var(--text); }
+.masthead nav a[aria-current="page"] { color: var(--text); text-decoration: underline; text-decoration-color: var(--text); text-underline-offset: 6px; }
 
 /* ---- Home ----------------------------------------------------------- */
 .intro { display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 2rem; }
@@ -95,7 +104,7 @@ h1.name {
   font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
 }
 .elsewhere a { color: var(--muted); }
-.elsewhere a:hover { color: var(--accent); }
+.elsewhere a:hover { color: var(--text); }
 
 /* ---- Sections & lists ----------------------------------------------- */
 h2.section-head {
@@ -109,28 +118,27 @@ h2.section-head:first-child { margin-top: 0; }
 
 .paper { margin-bottom: 1.9rem; }
 .paper .title { font-size: 1.18rem; line-height: 1.3; display: block; margin-bottom: 0.15rem; }
-.paper .title a { color: var(--text); border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); }
-.paper .title a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.paper .title a { color: var(--text); }
 .paper .meta { color: var(--muted); font-size: 0.95rem; font-style: italic; }
-.paper .meta a { color: var(--muted); border-bottom-color: var(--rule); }
-.paper .meta a:hover { color: var(--accent); }
+.paper .meta a { color: var(--muted); text-decoration: none; }
+.paper .meta a:hover { color: var(--text); text-decoration: underline; text-decoration-color: var(--underline); }
 .paper .links { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem; }
-.paper .links a { color: var(--accent-soft); margin-right: 1rem; border-bottom: none; }
-.paper .links a:hover { color: var(--accent); border-bottom: 1px solid var(--accent); }
+.paper .links a { color: var(--muted); margin-right: 1rem; text-decoration: none; }
+.paper .links a:hover { color: var(--text); text-decoration: underline; }
 
 details.abstract { margin-top: 0.45rem; }
 details.abstract > summary {
   cursor: pointer; list-style: none;
   font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--accent-soft); display: inline-block;
+  color: var(--muted); display: inline-block;
 }
 details.abstract > summary::-webkit-details-marker { display: none; }
 details.abstract > summary::before { content: "+\00a0"; }
 details.abstract[open] > summary::before { content: "\2013\00a0"; }
-details.abstract > summary:hover { color: var(--accent); }
+details.abstract > summary:hover { color: var(--text); }
 details.abstract > p {
   margin: 0.7rem 0 0; padding: 0.9rem 1.1rem;
-  background: var(--surface); border-left: 2px solid var(--accent-soft);
+  background: var(--surface); border-left: 2px solid var(--rule);
   font-size: 0.95rem; line-height: 1.6; color: var(--text);
 }
 
@@ -155,19 +163,23 @@ details.abstract > p {
 
 
 /* ---- Theme toggle ---------------------------------------------------- */
+/* Shows the theme currently in use; clicking switches to the other one. */
 .theme-toggle {
-  background: none; border: 0; padding: 0; margin: 0;
-  color: var(--muted); cursor: pointer; line-height: 0;
+  background: none; border: 0; cursor: pointer; line-height: 0;
+  color: var(--muted);
+  padding: 0.4rem; margin: -0.4rem -0.4rem -0.4rem 0;
   display: inline-flex; align-items: center;
 }
-.theme-toggle:hover { color: var(--accent); }
-.theme-toggle svg { width: 15px; height: 15px; fill: currentColor; }
+.theme-toggle:hover { color: var(--text); }
+.theme-toggle:focus-visible { outline: 1px solid var(--text); outline-offset: 2px; border-radius: 2px; }
+.theme-toggle svg { width: 18px; height: 18px; fill: currentColor; display: block; }
+
 .theme-toggle .moon { display: none; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .theme-toggle .sun  { display: none; }
   :root:not([data-theme="light"]) .theme-toggle .moon { display: block; }
 }
-:root[data-theme="dark"] .theme-toggle .sun  { display: none; }
-:root[data-theme="dark"] .theme-toggle .moon { display: block; }
+:root[data-theme="dark"]  .theme-toggle .sun  { display: none; }
+:root[data-theme="dark"]  .theme-toggle .moon { display: block; }
 :root[data-theme="light"] .theme-toggle .sun  { display: block; }
 :root[data-theme="light"] .theme-toggle .moon { display: none; }

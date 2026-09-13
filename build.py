@@ -5,7 +5,7 @@ import pathlib
 # slug, output path, site-root URL, <title>, og:title, description
 PAGES = [
     ("home", "index.html", "/", "Gabriel Fritsch", "Gabriel Fritsch",
-     "Gabriel Fritsch is a PhD candidate in economics at the University of Oxford and a member of technical staff at Mantic AI. Research on fiscal policy, sovereign debt, and international macroeconomics."),
+     "Gabriel Fritsch is a PhD candidate in economics at the University of Oxford and a member of technical staff at Mantic. Research on fiscal policy, sovereign debt, and international macroeconomics."),
     ("research", "research/index.html", "/research/", "Research &middot; Gabriel Fritsch", "Research",
      "Working papers and work in progress on fiscal policy, sovereign default, sudden stops, and geopolitical fragmentation."),
     ("teaching", "teaching/index.html", "/teaching/", "Teaching &middot; Gabriel Fritsch", "Teaching",
