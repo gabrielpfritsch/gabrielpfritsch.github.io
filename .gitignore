@@ -2,3 +2,12 @@
 _thumbs/
 contact.html
 .DS_Store
+
+# latex aux
+cv/*.aux
+cv/*.fdb_latexmk
+cv/*.fls
+cv/*.log
+cv/*.out
+cv/*.synctex.gz
+cv/cv.pdf

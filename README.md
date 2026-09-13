@@ -15,7 +15,21 @@ assets/css/style.css     the whole stylesheet
 assets/img/              portrait
 files/                   paper PDFs and CV
 files/gs/                Goldman Sachs research reports
+cv/cv.tex                CV source, moved off Overleaf
+cv/build.sh              builds it and installs files/cv.pdf
 ```
+
+## The CV
+
+`cv/cv.tex` is the source of truth. `files/cv.pdf` is a build artefact, committed
+so GitHub Pages can serve it. After editing the source:
+
+```sh
+./cv/build.sh
+```
+
+Commit the `.tex` and the regenerated `files/cv.pdf` together, or the published
+PDF drifts from its source.
 
 ## Editing
 
