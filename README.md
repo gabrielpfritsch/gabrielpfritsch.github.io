@@ -10,7 +10,8 @@ _head.part, _foot.part   shared page chrome
 _body/*.html             the content of each page — edit these
 build.py                 regenerates the four pages from the parts above
 index.html               generated — do not edit directly
-research/, teaching/, writing/
+research/, teaching/, writing/, 404.html
+favicon.svg, robots.txt, sitemap.xml
 assets/css/style.css     the whole stylesheet
 assets/img/              portrait
 files/                   paper PDFs and CV
@@ -55,3 +56,4 @@ python3 -m http.server 4711
 - Colours are CSS custom properties at the top of `style.css`. Dark mode is a
   `prefers-color-scheme` media query — there is no toggle.
 - Abstracts use `<details>`; no JavaScript anywhere on the site.
+- `sitemap.xml` is hand-maintained. Add an entry when you add a page.
