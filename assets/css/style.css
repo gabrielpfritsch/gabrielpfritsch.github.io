@@ -126,6 +126,18 @@ h2.section-head:first-child { margin-top: 0; }
 .paper .links a { color: var(--muted); margin-right: 1rem; text-decoration: none; }
 .paper .links a:hover { color: var(--text); text-decoration: underline; }
 
+.paper .coverage {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem; font-style: italic; color: var(--muted);
+}
+.paper .coverage .label {
+  font-style: normal; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-right: 0.55rem;
+}
+.paper .coverage a { color: var(--muted); }
+.paper .coverage a:hover { color: var(--text); }
+
 details.abstract { margin-top: 0.45rem; }
 details.abstract > summary {
   cursor: pointer; list-style: none;
